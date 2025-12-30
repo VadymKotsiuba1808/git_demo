@@ -39,6 +39,7 @@ void i2c_end(void)
 uint8_t i2c_write(uint8_t data)
 {
   uint8_t ack;
+  uint8_t ack1;
   for (int8_t i = 7; i >= 0; i--) {
     if (data & (1<<i)) {
       _set_pin(i2c_pins.sda, 1);
