@@ -27,11 +27,13 @@ void i2c_begin(void)
 void i2c_end(void)
 {
   _set_pin(i2c_pins.sda, 0);
-  _delay_us(150);
+  _delay_us(200);
   _set_pin(i2c_pins.scl, 1);
   _delay_us(10);
   _set_pin(i2c_pins.sda, 0);
   _delay_us(10);
+  delay_us(1000);
+  _set_pin(i2c_pins.sda, 0);
 }
 
 uint8_t i2c_write(uint8_t data)
