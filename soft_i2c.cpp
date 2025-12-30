@@ -27,10 +27,10 @@ void i2c_begin(void)
 void i2c_end(void)
 {
   _set_pin(i2c_pins.sda, 0);
-  _delay_us(10);
+  _delay_us(150);
   _set_pin(i2c_pins.scl, 1);
   _delay_us(10);
-  _set_pin(i2c_pins.sda, 1);
+  _set_pin(i2c_pins.sda, 0);
   _delay_us(10);
 }
 
