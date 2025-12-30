@@ -63,6 +63,7 @@ uint8_t i2c_write(uint8_t data)
   return ack;
 }
 
+// Commented
 uint8_t i2c_read(uint8_t ack)
 {
   uint8_t data = 0;
