@@ -39,6 +39,7 @@ void i2c_end(void)
 uint8_t i2c_write(uint8_t data)
 {
   uint8_t ack;
+  uint8_t ack1;
   for (int8_t i = 7; i >= 0; i--) {
     if (data & (1<<i)) {
       _set_pin(i2c_pins.sda, 1);
@@ -52,6 +53,8 @@ uint8_t i2c_write(uint8_t data)
   }
   *i2c_pins.ddr &= ~(1 << i2c_pins.sda);
   _delay_us(10);
+  _delay_us(10);
+  _delay_us(10);
   _set_pin(i2c_pins.scl, 1);
   _delay_us(10);
   ack = _read_pin(i2c_pins.sda);
@@ -60,6 +63,7 @@ uint8_t i2c_write(uint8_t data)
   return ack;
 }
 
+// Commented
 uint8_t i2c_read(uint8_t ack)
 {
   uint8_t data = 0;
